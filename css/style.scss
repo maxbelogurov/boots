@@ -1,0 +1,28 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+$blue: #4695bc;
+$red: #ea394e;
+$white: #fff;
+
+
+.product-img img{
+    width: 100%;
+    cursor: pointer;
+}
+.product-img-thumbs {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    img {
+        width: 100%;
+        border-radius: 10px;
+        border:1px solid $white;
+    }
+    img:hover {
+        border:1px solid $blue;
+    }
+}
