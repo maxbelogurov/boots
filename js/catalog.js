@@ -53,7 +53,7 @@ function preloadImages(arr) { // предзагрузка изображений
 };
 function writeProductImage(id) { //вставка в массив для пролистывания и отпрвку на предзагрузку
     for(let i = 1; i < 6; i++) {
-        productImagesArr.push(`${window.location.hostname}/img/${id}/${i}.jpg`);
+        productImagesArr.push(`./img/${id}/${i}.jpg`);
     }
     preloadImages(productImagesArr);
 }
