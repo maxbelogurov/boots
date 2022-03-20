@@ -8,10 +8,19 @@
   font-family: 'Nunito', sans-serif;
 }
 
-.about-section,
-.filter-section {
+.about-section {
   background-color: #fff;
   border-radius: 10px;
+}
+
+.filter-section {
+  background-color: #2b435d;
+  border-radius: 10px;
+  color: #fff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: -10px;
+  opacity: 0.95;
 }
 
 .size-filter {
