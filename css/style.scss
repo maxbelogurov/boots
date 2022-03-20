@@ -13,6 +13,37 @@ $border: #e2e2e2;
     background-color: $bg;
     font-family: 'Nunito', sans-serif;
 }
+.about-section,
+.filter-section {
+    background-color: $white;
+    border-radius: 10px;
+}
+.size-filter {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    .size-btn {
+        padding: 1px 3px 0px 3px;
+        border-radius: 5px;
+        border: 1px solid #e2e2e2;
+        cursor: pointer;
+        transition: 0.4s;
+    }
+    .size-btn:hover {
+        border: 1px solid $red;
+    }
+    .size-btn.active {
+        background-color: $red;
+        border: 1px solid $white;
+        color: $white;
+    }
+}
+.product {
+    display: none;
+}
+.product.active {
+    display: block;
+}
 .product-box {
     background-color: $white;
     border-radius: 20px;

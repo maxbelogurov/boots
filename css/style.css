@@ -8,6 +8,48 @@
   font-family: 'Nunito', sans-serif;
 }
 
+.about-section,
+.filter-section {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.size-filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.size-filter .size-btn {
+  padding: 1px 3px 0px 3px;
+  border-radius: 5px;
+  border: 1px solid #e2e2e2;
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.size-filter .size-btn:hover {
+  border: 1px solid #ea394e;
+}
+
+.size-filter .size-btn.active {
+  background-color: #ea394e;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.product {
+  display: none;
+}
+
+.product.active {
+  display: block;
+}
+
 .product-box {
   background-color: #fff;
   border-radius: 20px;
