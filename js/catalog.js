@@ -7,7 +7,7 @@ let productSizesList = {
     '13-1498-C': [20, 21, 22, 23, 24, 25],
     '13-068-C': [18, 19, 20, 21],
     '13-068-Z': [18, 19, 20, 21, 22, 23],
-    '13-1476-GK': [19, 20, 21, 22, 23, 24],
+    '13-1476-G': [19, 20, 21, 22, 23, 24],
     '13-1442-BA': [18, 19, 20, 21, 22, 23],
     '13-1498-Z': [20, 21, 22, 23, 24],
     '13-1498-SJ': [20, 21, 22, 23, 24, 25],
@@ -22,6 +22,7 @@ let productSizesList = {
     '23-3225-PR': [26, 27, 29, 30],
     '23-3225-PZ': [27]
 }
+let productsCard = document.querySelectorAll('.product')
 //прописываем главную картинку и картинки thumb к каждому товару
 let allProductsImages = document.querySelectorAll('.product-images');
 allProductsImages.forEach(function(item) {
@@ -31,6 +32,71 @@ allProductsImages.forEach(function(item) {
     }
 });
 
+//создаем фильтр по размерам
+let allSizesFilter = []
+let sizeFilterBox = document.querySelector('.size-filter');
+for (let key in productSizesList) { //записываем все существующие размеры в массив
+    for (let i = 0; i < productSizesList[key].length; i++) {
+        if (!allSizesFilter.includes(productSizesList[key][i], 0)) {
+            allSizesFilter.push(productSizesList[key][i]);
+        }
+    }
+};
+allSizesFilter.sort();
+allSizesFilter.forEach(function(elem) { //прописываем все размеры на страницу
+    sizeFilterBox.insertAdjacentHTML('beforeend', `<div class="size-btn">${elem}</div>`)
+});
+function hiddenProducts(set) { //Вкл,выкл товар по ID из фильтра
+    productsCard.forEach(elem => {
+        elem.classList.remove('active'); //сперва отключаем все товары
+    });
+    if (set.size === 0) {
+        activeAllProductsIfSizeNotActive(); //если id пуст, то включаем все товары.
+    }
+    set.forEach(idElem => {
+        productsCard.forEach(elem => {
+            if (elem.dataset.id === idElem) {
+                elem.classList.add('active');
+            }
+        });
+    });
+}
+function activeAllProductsIfSizeNotActive() { //включаем все товары, если фильтр не выбран
+    productsCard.forEach(elem => {
+        elem.classList.add('active');
+    });
+}
+function searchProductIDtoActiveSize() { // пробегаемся по массиву и ищем ID, у которых отсутствуют активные размеры.
+    let activeIDs = new Set; //создаем сет для уникальных значений id товара из фильтра
+    for (let size of allSizesFilterMap) { //перебираем Map
+        if (allSizesFilterMap.get(size[0]) ) { //если значение размера true
+            for (let key in productSizesList) { //перебираем объект id/размер
+                productSizesList[key].forEach(element => { //перебираем массив размеров в объекте id/размер
+                    if (element === size[0]) { 
+                        activeIDs.add(key);
+                    }; 
+                });
+            };
+        }
+    }
+    return activeIDs;
+}
+let allSizesFilterMap = new Map(); //создаем Map  
+allSizesFilter.forEach(item => { //наполняем Map коллекцией размер/булево
+    allSizesFilterMap.set(item, false);
+});
+sizeFilterBox.addEventListener('click', e => { //слушаем размеры на клик
+    e.target.classList.toggle('active');  //добавляем класс приклике
+    for (let size of allSizesFilterMap) { // перебираем map c размерами
+        if (+e.target.innerHTML === size[0]) { //сверям с размером на который кликнули
+            size[1] ? allSizesFilterMap.set(size[0], false) : allSizesFilterMap.set(size[0], true); //меняем false на true и обратно
+        }
+    }
+    hiddenProducts(searchProductIDtoActiveSize()); //запускаем f. скрытие товара, в которую передаем set с ID товарами из фильтра.
+})
+activeAllProductsIfSizeNotActive(); // включаем все товары при загрузки страницы
+
+
 //делаем thumb кликабельными
 let allProductsImagesThumbs = document.querySelectorAll('.product-img-thumbs');
 allProductsImagesThumbs.forEach(item => {
@@ -38,6 +104,7 @@ allProductsImagesThumbs.forEach(item => {
         item.parentElement.children[0].innerHTML = `<img src="${event.path[0].src}">`;
     });
 });
+
 //делаем слайдшоу в модалке к каждому товару
 let productImagesArr = [];
 let slideNum;
@@ -80,7 +147,7 @@ nextSlideBtn.addEventListener('click', () => { nowSlide.innerHTML = prevOrNextSl
 
 
 //проходимся по массиву {артикул:размеры}, сверяем с товаром и вставояем в существующий товар нужные размеры
-let productsCard = document.querySelectorAll('.product')
+
 let sizesCard = document.querySelectorAll('.product-size')
 productsCard.forEach(function(item, index) {
     for (const key in productSizesList) {
@@ -91,3 +158,6 @@ productsCard.forEach(function(item, index) {
         }
     }
 })
+
+
+
