@@ -50,9 +50,6 @@ function hiddenProducts(set) { //Вкл,выкл товар по ID из фил�
     productsCard.forEach(elem => {
         elem.classList.remove('active'); //сперва отключаем все товары
     });
-    if (set.size === 0) {
-        activeAllProductsIfSizeNotActive(); //если id пуст, то включаем все товары.
-    }
     set.forEach(idElem => {
         productsCard.forEach(elem => {
             if (elem.dataset.id === idElem) {
