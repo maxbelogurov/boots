@@ -56,7 +56,7 @@ btnArr.forEach(item => {
 function sendMessage(phone) {
     let message = "Артикул: " + idNow + "%0AРазмер: " + sizeNow + "%0AЦена: " + priceNow.slice(0,4) + "р.%0A" + phone;
     var token = "5588833453:AAFH83jOSCgzEQVZc5U9kJ02hgENqC3bF5w";
-    var chat_id = "-645306170";
+    var chat_id = "-778150313";
     var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${message}`;
     var tReq = new XMLHttpRequest();
     tReq.open("GET", url, true);
