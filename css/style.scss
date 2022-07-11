@@ -25,6 +25,13 @@ $border: #e2e2e2;
     top: -10px;
     opacity: 0.95;
 }
+.btn-outline-success:focus,
+.btn-success:focus,
+.btn-close:focus,
+input:focus
+{
+    box-shadow: 0 0 0 0px rgb(0,0,0) !important;
+}
 .size-filter {
     display: flex;
     gap: 10px;
@@ -89,12 +96,28 @@ $border: #e2e2e2;
     display: flex;
     justify-content: end;
     gap: 10px;
-    
-    div {
+
+    .size {
         padding: 1px 3px 0px 3px;
         border-radius: 5px;
         border:1px solid $border;
         font-size: 0.9em;
+        transition: .2s;
+        cursor: pointer;
+        -webkit-touch-callout: none; /* запрет выделения текста */
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .size:hover {
+        border:1px solid $blue;
+    }
+    .size.active {
+        border:1px solid $blue;
+        background-color: $blue;
+        color: $white;
     }
 }
 .slide-image img {
@@ -120,7 +143,7 @@ $border: #e2e2e2;
         right: 0;
     }
     svg {
-    position: absolute; 
+    position: absolute;
     top: 50%;
     transition: .4s;
     stroke: $bg
@@ -134,5 +157,16 @@ $border: #e2e2e2;
     .slide-arrow_prev:hover svg,
     .slide-arrow_next:hover svg {
         stroke: $blue;
+    }
+}
+.cart-product {
+    .cart-product__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .product-info__price {
+        color: #ea394e;
+        font-size: 1.5em;
     }
 }

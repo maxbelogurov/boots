@@ -153,7 +153,7 @@ productsCard.forEach(function(item, index) {
     for (const key in productSizesList) {
         if(key === item.dataset.id) {
             for (let i = 0; i < productSizesList[key].length; i++) {
-                sizesCard[index].insertAdjacentHTML('beforeend', `<div>${productSizesList[key][i]}</div>`)
+                sizesCard[index].insertAdjacentHTML('beforeend', `<div class="size">${productSizesList[key][i]}</div>`)
             }
         }
     }
