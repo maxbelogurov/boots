@@ -170,7 +170,6 @@ input:focus {
 .cart-product .cart-product__info {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .cart-product .product-info__price {
   color: #ea394e;

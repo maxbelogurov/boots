@@ -98,24 +98,26 @@ const showModalCart = (id, name, img, size, price) => {
                 </div>
             </div>
             <div class="cart-product row justify-content-center justify-content-md-start">
-                <div class="cart-product__image col-8 col-md-5">
+                <div class="cart-product__image col-6 col-md-5">
                     <img class="img-fluid img-thumbnail mb-3 mb-md-0" src="${img}" alt="${name}">
                 </div>
-                <div class="cart-product__info col-12 col-md-7">
+                <div class="cart-product__info col-6 col-md-7">
                     <div>
                         <p class="text-muted mb-2">Арт: ${id}</p>
-                        <p class="mb-2">Размер: ${size}</p>
+                        <p class="mb-1">Размер: ${size}</p>
                     </div>
                     <div class="product-info__price">${price}</div>
-                    <div class="mb-3">
-                        <label for="phoneInput" class="form-label mb-0">Телефон</label>
-                        <input type="phone" id="phoneInput" class="form-control" placeholder="+7(909)-000-00-00">
-                    </div>    
                 </div>
             </div>
-            <div class="cart-product__send row justify-content-center mt-4">
-                <button onclick='checkInputPhone()' class="btn btn-success w-50">Купить</button>
-            </div>
+            <div class="row justify-content-center">
+                <div class="col-10 col-sm-7 mt-2">
+                        <label for="phoneInput" class="form-label mb-0">Телефон</label>
+                        <input type="phone" id="phoneInput" class="form-control" placeholder="+7(909)-000-00-00">
+                </div>
+                <div class="col-5  col-sm-7 mt-3 text-center">
+                    <button onclick='checkInputPhone()' class="btn btn-success w-100">Купить</button>
+                </div>
+            </div> 
             </div>
        </div>
     </div>
