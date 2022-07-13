@@ -3,11 +3,11 @@
     margin: 0;
     padding: 0;
 }
-$blue: #2b435d;
+$blue: #9dab91;
 $red: #ea394e;
 $white: #fff;
 $lite: #f8f9fa;
-$bg: #b1bac1;
+$bg: #fef0e4;
 $border: #e2e2e2;
 #body {
     background-color: $bg;
@@ -63,9 +63,14 @@ input:focus
     border-radius: 20px;
     box-shadow: 0 0 3px #ccc;
 }
+.product-img {
+    margin: 0 -.5rem;
+
+}
 .product-img img{
     width: 100%;
     cursor: pointer;
+    border-radius: 1rem;
 }
 .product-img-thumbs {
     display: flex;

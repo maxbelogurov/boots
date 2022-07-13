@@ -5,7 +5,7 @@
 }
 
 #body {
-  background-color: #b1bac1;
+  background-color: #fef0e4;
   font-family: "Nunito", sans-serif;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .filter-section {
-  background-color: #2b435d;
+  background-color: #9dab91;
   border-radius: 10px;
   color: #fff;
   position: sticky;
@@ -65,9 +65,14 @@ input:focus {
   box-shadow: 0 0 3px #ccc;
 }
 
+.product-img {
+  margin: 0 -0.5rem;
+}
+
 .product-img img {
   width: 100%;
   cursor: pointer;
+  border-radius: 1rem;
 }
 
 .product-img-thumbs {
@@ -81,7 +86,7 @@ input:focus {
   border: 1px solid #fff;
 }
 .product-img-thumbs img:hover {
-  border: 1px solid #2b435d;
+  border: 1px solid #9dab91;
 }
 
 .product-description {
@@ -118,11 +123,11 @@ input:focus {
   user-select: none;
 }
 .product-size .size:hover {
-  border: 1px solid #2b435d;
+  border: 1px solid #9dab91;
 }
 .product-size .size.active {
-  border: 1px solid #2b435d;
-  background-color: #2b435d;
+  border: 1px solid #9dab91;
+  background-color: #9dab91;
   color: #fff;
 }
 
@@ -154,7 +159,7 @@ input:focus {
   position: absolute;
   top: 50%;
   transition: 0.4s;
-  stroke: #b1bac1;
+  stroke: #fef0e4;
 }
 .slide-arrows .slide-arrow_prev svg {
   left: 5%;
@@ -164,7 +169,7 @@ input:focus {
 }
 .slide-arrows .slide-arrow_prev:hover svg,
 .slide-arrows .slide-arrow_next:hover svg {
-  stroke: #2b435d;
+  stroke: #9dab91;
 }
 
 .cart-product .cart-product__info {

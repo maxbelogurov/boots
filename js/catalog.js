@@ -23,13 +23,27 @@ let productSizesList = {
     '23-3225-PZ': [27]
 }
 let productsCard = document.querySelectorAll('.product')
+
+// предзагрузка изображений
+const images = [];
+let productImagesArr = [];
+function preloadImages(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        images[i] = new Image();
+        images[i].src = arr[i];
+    }
+};
+
 //прописываем главную картинку и картинки thumb к каждому товару
 let allProductsImages = document.querySelectorAll('.product-images');
 allProductsImages.forEach(function(item) {
-    item.children[0].insertAdjacentHTML('afterbegin', `<img src="./img/${item.dataset.id}/1_thumb.jpg" alt="RenBut-${item.dataset.id}">`);
+    item.children[0].insertAdjacentHTML('afterbegin', `<img src="./img/${item.dataset.id}/1.jpg" alt="RenBut-${item.dataset.id}">`);
     for (let i = 1; i <= 5; i++) {
-        item.children[1].insertAdjacentHTML('beforeend', `<div><img src="./img/${item.dataset.id}/${i}_thumb.jpg" alt="RenBut-${item.dataset.id}-${i}"></div>`);
+        item.children[1].insertAdjacentHTML('beforeend', `<div><img src="./img/${item.dataset.id}/${i}.jpg" alt="RenBut-${item.dataset.id}-${i}"></div>`);
+        productImagesArr.push(`./img/${item.dataset.id}/${i}.jpg`)
     }
+    preloadImages(productImagesArr);
+    productImagesArr = [];
 });
 
 //создаем фильтр по размерам
@@ -97,6 +111,7 @@ sizeFilterBox.addEventListener('click', e => { //слушаем размеры �
 activeAllProductsIfSizeNotActive(); // включаем все товары при загрузки страницы
 
 
+
 //делаем thumb кликабельными
 let allProductsImagesThumbs = document.querySelectorAll('.product-img-thumbs');
 allProductsImagesThumbs.forEach(item => {
@@ -106,23 +121,18 @@ allProductsImagesThumbs.forEach(item => {
 });
 
 //делаем слайдшоу в модалке к каждому товару
-let productImagesArr = [];
+
 let slideNum;
 let nowSlide = document.querySelector('.slide-image');
 const prevSlideBtn = document.querySelector('.slide-arrow_prev');
 const nextSlideBtn = document.querySelector('.slide-arrow_next');
-const images = [];
-function preloadImages(arr) { // предзагрузка изображений
-    for (let i = 0; i < arr.length; i++) {
-        images[i] = new Image();
-        images[i].src = arr[i];
-    }
-};
+
+
 function writeProductImage(id) { //вставка в массив для пролистывания и отпрвку на предзагрузку
     for(let i = 1; i < 6; i++) {
         productImagesArr.push(`./img/${id}/${i}.jpg`);
     }
-    preloadImages(productImagesArr);
+    // preloadImages(productImagesArr);
 }
 
 let prodictImg = document.querySelectorAll('.product-img');
